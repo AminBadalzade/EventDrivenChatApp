@@ -26,6 +26,7 @@ namespace EventDrivenChatApp
         
         public void Broadcast(string senderName, string message)
         {
+            Console.WriteLine($"{senderName} is typing...");
             Thread.Sleep(1000);
             MessageReceived?.Invoke(this, new MessageEventArgs(senderName, message));
         }

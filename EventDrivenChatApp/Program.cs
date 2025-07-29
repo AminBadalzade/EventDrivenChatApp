@@ -11,10 +11,14 @@ namespace EventDrivenChatApp
 
             List<ChatUser> users= new List<ChatUser>();
 
+            var colors = new[] {ConsoleColor.Cyan, ConsoleColor.Yellow, ConsoleColor.Green,
+            ConsoleColor.Magenta, ConsoleColor.Blue, ConsoleColor.White};
+
             for (int i = 0; i < userCount; i++) {
                 Console.Write($"Enter name for user {i+1}: ");
                 string name = Console.ReadLine();
-                var user = new ChatUser { UserName = name };
+                ConsoleColor textColor = colors[i % colors.Length];
+                var user = new ChatUser(name, textColor);
                 users.Add(user);
             }
 
